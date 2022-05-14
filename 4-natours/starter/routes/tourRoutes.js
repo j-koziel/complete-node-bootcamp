@@ -1,10 +1,12 @@
 const express = require('express');
 const tourController = require('../controllers/tourController');
 
+// The router object is like a "mini-application".
+// It allows you to clean up your routes so that the file does not become cluttered.
+// Only performs middleware and routing functions.
 const router = express.Router();
 
-// router.param('id', tourController.checkID);
-
+// Routes
 router
   .route('/top-5-cheap')
   .get(tourController.aliasTopTours, tourController.getAllTours);

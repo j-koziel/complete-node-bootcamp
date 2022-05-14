@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const slugify = require('slugify');
 const validator = require('validator');
 
+// This Schema is like a blueprint.
+// It defines the shape of each document and is the foundation for each document.
+// However, for this to be tangible we need to convert it into a Model... look below.
 const tourSchema = new mongoose.Schema(
   {
     name: {
@@ -96,16 +99,6 @@ tourSchema.pre('save', function (next) {
   next();
 });
 
-// tourSchema.pre('save', function (next) {
-//   console.log('Will save document...');
-//   next();
-// });
-
-// tourSchema.post('save', function (doc, next) {
-//   console.log(doc);
-//   next();
-// });
-
 // QUERY MIDDLEWARE
 tourSchema.pre(/^find/, function (next) {
   this.find({ secretTour: { $ne: true } });
@@ -126,6 +119,9 @@ tourSchema.pre('aggregate', function (next) {
   next();
 });
 
+// AH.. you made it. This here is where the model is made.
+// This model allows us to create new documents and add them to the database.
+// We can also use this model to fetch all the documents from the database.
 const Tour = mongoose.model('Tour', tourSchema);
 
 module.exports = Tour;
