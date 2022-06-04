@@ -1,6 +1,7 @@
 const Tour = require('../models/tourModel');
 const APIFeatures = require('../utils/apiFeatures');
 const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
 
 exports.aliasTopTours = (req, res, next) => {
   req.query.limit = '5';
@@ -34,12 +35,16 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
 });
 
 // This function returns only one tour specified by the _id field
-exports.getTour = catchAsync(async (req, res) => {
+exports.getTour = catchAsync(async (req, res, next) => {
   // Returns a promise hence the use of ✨ await ✨
   // findById returns a query object
   // This allows for chaining
   const tour = await Tour.findById(req.params.id);
   // Tour.findOne({ _id: req.params.id })
+
+  if (!tour) {
+    return next(new AppError('No tour found with that ID', 404));
+  }
 
   res.status(200).json({
     status: 'success',
@@ -47,10 +52,6 @@ exports.getTour = catchAsync(async (req, res) => {
       // Send the tour as a response
       tour,
     },
-  });
-  res.status(404).json({
-    status: 'fail',
-    message: err,
   });
 });
 
@@ -73,7 +74,7 @@ exports.createTour = catchAsync(async (req, res, next) => {
 });
 
 // Updates a tour with new data
-exports.updateTour = catchAsync(async (req, res) => {
+exports.updateTour = catchAsync(async (req, res, next) => {
   // Finds the tour by the _id field
   // Updates according to the request body
   // Will return the updated tour
@@ -83,6 +84,10 @@ exports.updateTour = catchAsync(async (req, res) => {
     // Will run validators on the new data
     runValidators: true,
   });
+
+  if (!tour) {
+    return next(new AppError('No tour found with that ID', 404));
+  }
 
   res.status(200).json({
     status: 'success',
@@ -94,11 +99,15 @@ exports.updateTour = catchAsync(async (req, res) => {
 });
 
 // Delete a tour
-exports.deleteTour = catchAsync(async (req, res) => {
+exports.deleteTour = catchAsync(async (req, res, next) => {
   // No data is being sent back to the client hence why the value is not stored in a var
   // Finds the tour with the _id and deletes it
   // Issues the mongoDB findOneAndDelete() command
-  await Tour.findByIdAndDelete(req.params.id);
+  const tour = await Tour.findByIdAndDelete(req.params.id);
+
+  if (!tour) {
+    return next(new AppError('No tour found with that ID', 404));
+  }
 
   res.status(204).json({
     status: 'success',
@@ -108,7 +117,7 @@ exports.deleteTour = catchAsync(async (req, res) => {
 });
 
 // Return most important tour stats.
-exports.getTourStats = catchAsync(async (req, res) => {
+exports.getTourStats = catchAsync(async (req, res, next) => {
   // Aggregates the tours to only return the specified data
   // Takes in an aggregation pipeline as an array of objects
   const stats = await Tour.aggregate([
@@ -149,7 +158,7 @@ exports.getTourStats = catchAsync(async (req, res) => {
 });
 
 // Returns all the tours depending on which month they start
-exports.getMonthlyPlan = catchAsync(async (req, res) => {
+exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
   // Find the year from the request
   const year = +req.params.year; // 2021
 
