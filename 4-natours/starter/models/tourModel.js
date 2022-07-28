@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const validator = require('validator');
 
 // This Schema is like a blueprint.
 // It defines the shape of each document and is the foundation for each document.
