@@ -16,11 +16,11 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
   // The find method here pretty much finds ✨ documents ✨
   // The find method also returns a mongoose query object so that queries can be executed as ✨ middleware ✨
   // Notes about "APIFeatures are in ../utils/apiFeatures.js"
-  const features = new APIFeatures(Tour.find(), req.query)
-    .filter()
-    .sort()
-    .limitFields()
-    .paginate();
+  const features = new APIFeatures(Tour.find(), req.query);
+  // .filter()
+  // .sort()
+  // .limitFields()
+  // .paginate();
 
   const tours = await features.query;
 

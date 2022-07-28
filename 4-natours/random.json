@@ -1,0 +1,192 @@
+[
+  {
+    "ratingsAverage": { "$numberDouble": "4.8" },
+    "ratingsQuantity": { "$numberInt": "23" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-2-1.jpg", "tour-2-2.jpg", "tour-2-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1624093200000" } },
+      { "$date": { "$numberLong": "1626771600000" } },
+      { "$date": { "$numberLong": "1629277200000" } }
+    ],
+    "name": "The Sea Explorer",
+    "duration": { "$numberInt": "7" },
+    "maxGroupSize": { "$numberInt": "15" },
+    "difficulty": "medium",
+    "price": { "$numberInt": "497" },
+    "summary": "Exploring the jaw-dropping US east coast by foot and by boat",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "imageCover": "tour-2-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.5" },
+    "ratingsQuantity": { "$numberInt": "13" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-3-1.jpg", "tour-3-2.jpg", "tour-3-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1641376800000" } },
+      { "$date": { "$numberLong": "1644660000000" } },
+      { "$date": { "$numberLong": "1672999200000" } }
+    ],
+    "name": "The Snow Adventurer",
+    "duration": { "$numberInt": "4" },
+    "maxGroupSize": { "$numberInt": "10" },
+    "difficulty": "difficult",
+    "price": { "$numberInt": "997" },
+    "summary": "Exciting adventure in the snow with snowboarding and skiing",
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!\nDolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, exercitation ullamco laboris nisi ut aliquip. Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
+    "imageCover": "tour-3-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.6" },
+    "ratingsQuantity": { "$numberInt": "54" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-4-1.jpg", "tour-4-2.jpg", "tour-4-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1615456800000" } },
+      { "$date": { "$numberLong": "1619946000000" } },
+      { "$date": { "$numberLong": "1623229200000" } }
+    ],
+    "name": "The City Wanderer",
+    "duration": { "$numberInt": "9" },
+    "maxGroupSize": { "$numberInt": "20" },
+    "difficulty": "easy",
+    "price": { "$numberInt": "1197" },
+    "summary": "Living the life of Wanderlust in the US' most beatiful cities",
+    "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat lorem ipsum dolor sit amet.\nConsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat!",
+    "imageCover": "tour-4-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.9" },
+    "ratingsQuantity": { "$numberInt": "19" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-5-1.jpg", "tour-5-2.jpg", "tour-5-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1628154000000" } },
+      { "$date": { "$numberLong": "1647770400000" } },
+      { "$date": { "$numberLong": "1660294800000" } }
+    ],
+    "name": "The Park Camper",
+    "duration": { "$numberInt": "10" },
+    "maxGroupSize": { "$numberInt": "15" },
+    "difficulty": "medium",
+    "price": { "$numberInt": "1497" },
+    "summary": "Breathing in Nature in America's most spectacular National Parks",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!",
+    "imageCover": "tour-5-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.5" },
+    "ratingsQuantity": { "$numberInt": "35" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-7-1.jpg", "tour-7-2.jpg", "tour-7-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1613124000000" } },
+      { "$date": { "$numberLong": "1618390800000" } },
+      { "$date": { "$numberLong": "1630486800000" } }
+    ],
+    "name": "The Wine Taster",
+    "duration": { "$numberInt": "5" },
+    "maxGroupSize": { "$numberInt": "8" },
+    "difficulty": "easy",
+    "price": { "$numberInt": "1997" },
+    "summary": "Exquisite wines, scenic views, exclusive barrel tastings,  and much more",
+    "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "imageCover": "tour-7-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.9" },
+    "ratingsQuantity": { "$numberInt": "28" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-6-1.jpg", "tour-6-2.jpg", "tour-6-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1626685200000" } },
+      { "$date": { "$numberLong": "1630918800000" } },
+      { "$date": { "$numberLong": "1647597600000" } }
+    ],
+    "name": "The Sports Lover",
+    "duration": { "$numberInt": "14" },
+    "maxGroupSize": { "$numberInt": "8" },
+    "difficulty": "difficult",
+    "price": { "$numberInt": "2997" },
+    "summary": "Surfing, skating, parajumping, rock climbing and more, all in one tour",
+    "description": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nVoluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur!",
+    "imageCover": "tour-6-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.7" },
+    "ratingsQuantity": { "$numberInt": "28" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-8-1.jpg", "tour-8-2.jpg", "tour-8-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1616493600000" } },
+      { "$date": { "$numberLong": "1635152400000" } },
+      { "$date": { "$numberLong": "1643536800000" } }
+    ],
+    "name": "The Star Gazer",
+    "duration": { "$numberInt": "9" },
+    "maxGroupSize": { "$numberInt": "8" },
+    "difficulty": "medium",
+    "price": { "$numberInt": "2997" },
+    "summary": "The most remote and stunningly beautiful places for seeing the night sky",
+    "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "imageCover": "tour-8-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.9" },
+    "ratingsQuantity": { "$numberInt": "33" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-9-1.jpg", "tour-9-2.jpg", "tour-9-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1649941897273" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1639648800000" } },
+      { "$date": { "$numberLong": "1642327200000" } },
+      { "$date": { "$numberLong": "1670839200000" } }
+    ],
+    "name": "The Northern Lights",
+    "duration": { "$numberInt": "3" },
+    "maxGroupSize": { "$numberInt": "12" },
+    "difficulty": "easy",
+    "price": { "$numberInt": "1497" },
+    "summary": "Enjoy the Northern Lights in one of the best places in the world",
+    "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!\nDolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, exercitation ullamco laboris nisi ut aliquip. Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
+    "imageCover": "tour-9-cover.jpg",
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "ratingsAverage": { "$numberDouble": "4.5" },
+    "ratingsQuantity": { "$numberInt": "13" },
+    "rating": { "$numberDouble": "4.5" },
+    "images": ["tour-3-1.jpg", "tour-3-2.jpg", "tour-3-3.jpg"],
+    "createdAt": { "$date": { "$numberLong": "1651346567961" } },
+    "startDates": [
+      { "$date": { "$numberLong": "1641376800000" } },
+      { "$date": { "$numberLong": "1644660000000" } },
+      { "$date": { "$numberLong": "1672999200000" } }
+    ],
+    "secretTour": true,
+    "name": "Super Secret Tour",
+    "duration": { "$numberInt": "4" },
+    "maxGroupSize": { "$numberInt": "10" },
+    "difficulty": "difficult",
+    "price": { "$numberInt": "997" },
+    "summary": "Exciting adventure in the snow with snowboarding and skiing",
+    "imageCover": "tour-3-cover.jpg",
+    "slug": "super-secret-tour",
+    "__v": { "$numberInt": "0" }
+  }
+]
