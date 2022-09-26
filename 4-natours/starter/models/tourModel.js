@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const slugify = require('slugify');
-const User = require('./userModel');
+const mongoose = require("mongoose");
+const slugify = require("slugify");
+const User = require("./userModel");
 
 // This Schema is like a blueprint.
 // It defines the shape of each document and is the foundation for each document.
@@ -9,35 +9,35 @@ const tourSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'A tour must have a name'],
+      required: [true, "A tour must have a name"],
       unique: true,
       trim: true,
-      maxLength: [40, 'A tour name must have less or equal than 40 characters'],
-      minLength: [10, 'A tour name must have more or equal than 10 characters'],
+      maxLength: [40, "A tour name must have less or equal than 40 characters"],
+      minLength: [10, "A tour name must have more or equal than 10 characters"],
       // validate: [validator.isAlpha, 'Tour name must only contain letters'],
     },
     slug: String,
     duration: {
       type: Number,
-      required: [true, 'A tour must have a duration'],
+      required: [true, "A tour must have a duration"],
     },
     maxGroupSize: {
       type: Number,
-      required: [true, 'A tour must have a group size'],
+      required: [true, "A tour must have a group size"],
     },
     difficulty: {
       type: String,
-      required: [true, 'A tour must have a difficulty'],
+      required: [true, "A tour must have a difficulty"],
       enum: {
-        values: ['easy', 'medium', 'difficult'],
-        message: 'Difficulty is either: easy, medium or difficult',
+        values: ["easy", "medium", "difficult"],
+        message: "Difficulty is either: easy, medium or difficult",
       },
     },
     ratingsAverage: {
       type: Number,
       default: 4.5,
-      min: [1, 'Rating must be above 1.0'],
-      max: [5, 'Rating must be below 5.0'],
+      min: [1, "Rating must be above 1.0"],
+      max: [5, "Rating must be below 5.0"],
     },
     ratingsQuantity: {
       type: Number,
@@ -46,7 +46,7 @@ const tourSchema = new mongoose.Schema(
     rating: { type: Number, default: 4.5 },
     price: {
       type: Number,
-      required: [true, 'A tour must have a price'],
+      required: [true, "A tour must have a price"],
     },
     priceDiscount: {
       type: Number,
@@ -55,12 +55,12 @@ const tourSchema = new mongoose.Schema(
           // this only points to current document on NEW document creation
           return val < this.price;
         },
-        message: 'Discount price ({VALUE}) should below regular price',
+        message: "Discount price ({VALUE}) should below regular price",
       },
     },
     summary: {
       type: String,
-      required: [true, 'A tour must have a description'],
+      required: [true, "A tour must have a description"],
       trim: true,
     },
     description: {
@@ -69,7 +69,7 @@ const tourSchema = new mongoose.Schema(
     },
     imageCover: {
       type: String,
-      required: [true, 'A tour must have a cover image'],
+      required: [true, "A tour must have a cover image"],
     },
     images: [String],
     createdAt: {
@@ -86,8 +86,8 @@ const tourSchema = new mongoose.Schema(
       // GeoJSON
       type: {
         type: String,
-        defualt: 'Point',
-        enum: ['Point'],
+        defualt: "Point",
+        enum: ["Point"],
       },
       coordinates: [Number],
       address: String,
@@ -97,8 +97,8 @@ const tourSchema = new mongoose.Schema(
       {
         type: {
           type: String,
-          defualt: 'Point',
-          enum: ['Point'],
+          defualt: "Point",
+          enum: ["Point"],
         },
         coordinates: [Number],
         address: String,
@@ -114,17 +114,17 @@ const tourSchema = new mongoose.Schema(
   }
 );
 
-tourSchema.virtual('durationWeeks').get(function () {
+tourSchema.virtual("durationWeeks").get(function () {
   return this.duration / 7;
 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()
-tourSchema.pre('save', function (next) {
+tourSchema.pre("save", function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
 
-tourSchema.pre('save', async function (next) {
+tourSchema.pre("save", async function (next) {
   const guidesPromises = this.guides.map(async id => await User.findById(id));
   this.guides = await Promise.all(guidesPromises);
 
@@ -145,7 +145,7 @@ tourSchema.post(/^find/, function (docs, next) {
 });
 
 // AGGREGATION MIDDLEWARE
-tourSchema.pre('aggregate', function (next) {
+tourSchema.pre("aggregate", function (next) {
   this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
   console.log(this.pipeline());
   next();
@@ -154,6 +154,6 @@ tourSchema.pre('aggregate', function (next) {
 // AH.. you made it. This here is where the model is made.
 // This model allows us to create new documents and add them to the database.
 // We can also use this model to fetch all the documents from the database.
-const Tour = mongoose.model('Tour', tourSchema);
+const Tour = mongoose.model("Tour", tourSchema);
 
 module.exports = Tour;

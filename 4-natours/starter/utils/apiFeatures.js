@@ -10,7 +10,7 @@ class APIFeatures {
     // Spreading query string into an object
     const queryObj = { ...this.queryString };
     // Fields that should be excluded from the filter
-    const excludedFields = ['page', 'sort', 'limit', 'fields'];
+    const excludedFields = ["page", "sort", "limit", "fields"];
     excludedFields.forEach(el => delete queryObj[el]);
 
     // 1A) Advanced Filtering
@@ -26,7 +26,7 @@ class APIFeatures {
     // Check if the query string even contains the sort query
     if (this.queryString.sort) {
       // Joins all the sort options into a string
-      const sortBy = this.queryString.sort.split(',').join(' ');
+      const sortBy = this.queryString.sort.split(",").join(" ");
       // Sorts the query by the specified string (sortBy)
       this.query = this.query.sort(sortBy);
     }
@@ -35,10 +35,10 @@ class APIFeatures {
 
   limitFields() {
     if (this.queryString.fields) {
-      const fields = this.queryString.fields.split(',').join(' ');
+      const fields = this.queryString.fields.split(",").join(" ");
       this.query = this.query.select(fields);
     } else {
-      this.query = this.query.select('-__v');
+      this.query = this.query.select("-__v");
     }
     return this;
   }

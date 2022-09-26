@@ -1,5 +1,5 @@
-const nodemailer = require('nodemailer');
-require('dotenv').config();
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const sendEmail = async options => {
   // 1) Create a transporter
@@ -14,7 +14,7 @@ const sendEmail = async options => {
 
   // 2) Define the email options
   const mailOptions = {
-    from: 'Jonathan Koziel<3 <tweggy4@gmail.com>',
+    from: "Jonathan Koziel<3 <tweggy4@gmail.com>",
     to: options.email,
     subject: options.subject,
     text: options.message,
