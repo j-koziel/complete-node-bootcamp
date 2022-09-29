@@ -7,7 +7,7 @@ const reviewSchema = new mongoose.Schema(
       required: [true, "Review can not be empty!"],
     },
     rating: { type: Number, min: 1, max: 5, optional: true },
-    createdAt: { type: Date, required: true, defualt: Date.now },
+    createdAt: { type: Date, defualt: Date.now },
     tour: {
       type: mongoose.Schema.ObjectId,
       ref: "Tour",
@@ -25,6 +25,6 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-const Review = mongoose.model("Tour", reviewSchema);
+const Review = mongoose.model("Review", reviewSchema);
 
 module.exports = Review;
