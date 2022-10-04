@@ -13,6 +13,7 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
 
 exports.createReview = catchAsync(async (req, res, next) => {
   const newReview = await Review.create(req.body);
+  console.log("The createdAt property is: ", newReview.createdAt);
 
   res.status(201).json({
     status: "success",
