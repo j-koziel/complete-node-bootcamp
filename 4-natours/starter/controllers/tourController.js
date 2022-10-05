@@ -39,7 +39,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
   // Returns a promise hence the use of ✨ await ✨
   // findById returns a query object
   // This allows for chaining
-  const tour = await Tour.findById(req.params.id);
+  const tour = await Tour.findById(req.params.id).populate("reviews");
   // Tour.findOne({ _id: req.params.id })
 
   if (!tour) {
