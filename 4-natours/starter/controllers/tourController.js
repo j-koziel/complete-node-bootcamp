@@ -2,6 +2,7 @@ const Tour = require("../models/tourModel");
 const APIFeatures = require("../utils/apiFeatures");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
+const factory = require("./handlerFactory");
 
 exports.aliasTopTours = (req, res, next) => {
   req.query.limit = "5";
@@ -99,22 +100,24 @@ exports.updateTour = catchAsync(async (req, res, next) => {
 });
 
 // Delete a tour
-exports.deleteTour = catchAsync(async (req, res, next) => {
-  // No data is being sent back to the client hence why the value is not stored in a var
-  // Finds the tour with the _id and deletes it
-  // Issues the mongoDB findOneAndDelete() command
-  const tour = await Tour.findByIdAndDelete(req.params.id);
+exports.deleteTour = factory.deleteOne(Tour);
 
-  if (!tour) {
-    return next(new AppError("No tour found with that ID", 404));
-  }
+// catchAsync(async (req, res, next) => {
+//   // No data is being sent back to the client hence why the value is not stored in a var
+//   // Finds the tour with the _id and deletes it
+//   // Issues the mongoDB findOneAndDelete() command
+//   const tour = await Tour.findByIdAndDelete(req.params.id);
 
-  res.status(204).json({
-    status: "success",
-    // No data to be sent
-    data: null,
-  });
-});
+//   if (!tour) {
+//     return next(new AppError("No tour found with that ID", 404));
+//   }
+
+//   res.status(204).json({
+//     status: "success",
+//     // No data to be sent
+//     data: null,
+//   });
+// });
 
 // Return most important tour stats.
 exports.getTourStats = catchAsync(async (req, res, next) => {
