@@ -57,47 +57,10 @@ exports.getTour = catchAsync(async (req, res, next) => {
 });
 
 // Creates new tours
-exports.createTour = catchAsync(async (req, res, next) => {
-  // const newTour = new Tour({})
-  // newTour.save()
-  // Tour.create returns a promise.
-  // Use await to receive the fulfilled value
-  // The fulfilled value is going to be the request body that has been sent.
-  const newTour = await Tour.create(req.body);
-
-  res.status(201).json({
-    status: "success",
-    data: {
-      // Send the newly created tour as a response
-      tour: newTour,
-    },
-  });
-});
+exports.createTour = factory.createOne(Tour);
 
 // Updates a tour with new data
-exports.updateTour = catchAsync(async (req, res, next) => {
-  // Finds the tour by the _id field
-  // Updates according to the request body
-  // Will return the updated tour
-  const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
-    // Will return the new updated object with this option
-    new: true,
-    // Will run validators on the new data
-    runValidators: true,
-  });
-
-  if (!tour) {
-    return next(new AppError("No tour found with that ID", 404));
-  }
-
-  res.status(200).json({
-    status: "success",
-    data: {
-      // Send the updated tour
-      tour,
-    },
-  });
-});
+exports.updateTour = factory.updateOne(Tour);
 
 // Delete a tour
 exports.deleteTour = factory.deleteOne(Tour);

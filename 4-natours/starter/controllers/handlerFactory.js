@@ -4,7 +4,7 @@ const AppError = require("../utils/appError");
 exports.deleteOne = Model =>
   catchAsync(async (req, res, next) => {
     // No data is being sent back to the client hence why the value is not stored in a var
-    // Finds the tour with the _id and deletes it
+    // Finds the doc with the _id and deletes it
     // Issues the mongoDB findOneAndDelete() command
     const doc = await Model.findByIdAndDelete(req.params.id);
 
@@ -16,5 +16,48 @@ exports.deleteOne = Model =>
       status: "success",
       // No data to be sent
       data: null,
+    });
+  });
+
+exports.updateOne = Model =>
+  catchAsync(async (req, res, next) => {
+    // Finds the doc by the _id field
+    // Updates according to the request body
+    // Will return the updated doc
+    const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+      // Will return the new updated object with this option
+      new: true,
+      // Will run validators on the new data
+      runValidators: true,
+    });
+
+    if (!doc) {
+      return next(new AppError("No doc found with that ID", 404));
+    }
+
+    res.status(200).json({
+      status: "success",
+      data: {
+        // Send the updated doc
+        data: doc,
+      },
+    });
+  });
+
+exports.createOne = Model =>
+  catchAsync(async (req, res, next) => {
+    // const doc = new Model({})
+    // doc.save()
+    // Model.create returns a promise.
+    // Use await to receive the fulfilled value
+    // The fulfilled value is going to be the request body that has been sent.
+    const doc = await Model.create(req.body);
+
+    res.status(201).json({
+      status: "success",
+      data: {
+        // Send the newly created tour as a response
+        data: doc,
+      },
     });
   });
