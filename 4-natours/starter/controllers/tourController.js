@@ -1,7 +1,5 @@
 const Tour = require("../models/tourModel");
-const APIFeatures = require("../utils/apiFeatures");
 const catchAsync = require("../utils/catchAsync");
-const AppError = require("../utils/appError");
 const factory = require("./handlerFactory");
 
 exports.aliasTopTours = (req, res, next) => {
@@ -12,49 +10,10 @@ exports.aliasTopTours = (req, res, next) => {
 };
 
 // All of these functions are asynchronous as they are making requests to the Mongo database
-exports.getAllTours = catchAsync(async (req, res, next) => {
-  // EXECUTE QUERY
-  // The find method here pretty much finds ✨ documents ✨
-  // The find method also returns a mongoose query object so that queries can be executed as ✨ middleware ✨
-  // Notes about "APIFeatures are in ../utils/apiFeatures.js"
-  const features = new APIFeatures(Tour.find(), req.query);
-  // .filter()
-  // .sort()
-  // .limitFields()
-  // .paginate();
-
-  const tours = await features.query;
-
-  // SEND RESPONSE
-  res.status(200).json({
-    status: "success",
-    results: tours.length,
-    data: {
-      tours,
-    },
-  });
-});
+exports.getAllTours = factory.getAll(Tour);
 
 // This function returns only one tour specified by the _id field
-exports.getTour = catchAsync(async (req, res, next) => {
-  // Returns a promise hence the use of ✨ await ✨
-  // findById returns a query object
-  // This allows for chaining
-  const tour = await Tour.findById(req.params.id).populate("reviews");
-  // Tour.findOne({ _id: req.params.id })
-
-  if (!tour) {
-    return next(new AppError("No tour found with that ID", 404));
-  }
-
-  res.status(200).json({
-    status: "success",
-    data: {
-      // Send the tour as a response
-      tour,
-    },
-  });
-});
+exports.getTour = factory.getOne(Tour, { path: "reviews" });
 
 // Creates new tours
 exports.createTour = factory.createOne(Tour);
