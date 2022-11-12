@@ -20,33 +20,38 @@ router
   .get(tourController.aliasTopTours, tourController.getAllTours);
 
 router.route("/tour-stats").get(tourController.getTourStats);
-router.route("/monthly-plan/:year").get(tourController.getMonthlyPlan);
+// Only admins, lead-guides and guides can get a monthly plan of tours
+router
+  .route("/monthly-plan/:year")
+  .get(
+    authController.protect,
+    authController.restrictTo("admin", "lead-guide", "guide"),
+    tourController.getMonthlyPlan
+  );
 
+// Only admins can create new tours
 router
   .route("/")
-  .get(authController.protect, tourController.getAllTours)
-  .post(tourController.createTour);
+  .get(tourController.getAllTours)
+  .post(
+    authController.protect,
+    authController.restrictTo("admin", "lead-guide"),
+    tourController.createTour
+  );
 
+// Only admins and lead guides can edit tours
 router
   .route("/:id")
   .get(tourController.getTour)
-  .patch(tourController.updateTour)
+  .patch(
+    authController.protect,
+    authController.restrictTo("admin", "lead-guide"),
+    tourController.updateTour
+  )
   .delete(
     authController.protect,
     authController.restrictTo("admin", "lead-guide"),
     tourController.deleteTour
   );
-
-// POST /tour/2309479087fhd/reviews
-// GET /tour/2309479087fhd/reviews
-// GET /tour/2309479087fhd/reviews/786895a8d7s87d
-
-// router
-//   .route("/:tourId/reviews")
-//   .post(
-//     authController.protect,
-//     authController.restrictTo("users"),
-//     reviewController.createReview
-//   );
 
 module.exports = router;
