@@ -55,7 +55,7 @@ const tourSchema = new mongoose.Schema(
           // this only points to current document on NEW document creation
           return val < this.price;
         },
-        message: "Discount price ({VALUE}) should below regular price",
+        message: "Discount price ({VALUE}) should be below the regular price",
       },
     },
     summary: {
